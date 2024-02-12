@@ -15,7 +15,7 @@
 
             <div class="form-group">
                 <label for="prompt">Prompt</label>
-                <textarea name="prompt" class="form-control" v-model="prompt" id="prompt" cols="30" rows="10"></textarea>
+                <textarea name="prompt" class="form-control" v-model="prompt" id="prompt" cols="10" rows="5"></textarea>
             </div>
 
             <div class="form-group">
@@ -27,6 +27,22 @@
                 </select>
             </div>
             <div class="form-group">
+                <label for="style">Style</label>
+                <select name="style" class="form-control" v-model="style" id="style">
+                    <option value="vivid">Vivid</option>
+                    <option value="natural">Natural</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="model">Model</label>
+                <select name="model" class="form-control" v-model="model" id="model">
+                    <option value="dall-e-2">dall-e-2</option>
+                    <option value="dall-e-3">dall-e-3</option>
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label for="variation">Variations</label>
                 <input type="number" class="form-control" v-model="variation" name="variation" id="">
             </div>
@@ -37,10 +53,11 @@
 
             <div class="loader" v-if="isLoading">Loading...</div>
 
-            <div class="gallery">
+            
+            <div class="gallery mt-3">
                 <div class="row">
-                    <div class="col-md-6" v-for="result in results">
-                        <a :href="result.url"><img :src="result.url" width="500" height="500" alt=""></a><
+                    <div class="col-sm-4 p-3" v-for="result in results">
+                        <a :href="result.url"><img :src="result.url" width="200" height="200" alt=""></a>
                     </div>
                 </div>
             </div>

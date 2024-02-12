@@ -16,6 +16,7 @@ type FormData struct {
 	Prompt string `json:"prompt"`
 	N      int64  `json:"n"`
 	Size   string `json:"size"`
+	Style  string `json:"style"`
 }
 
 type Result struct {

@@ -58,6 +58,7 @@
                 <div class="row">
                     <div class="col-sm-4 p-3" v-for="result in results">
                         <a :href="result.url"><img :src="result.url" width="200" height="200" alt=""></a>
+                        <button @click="downloadImage(result.url)">Download</button>
                     </div>
                 </div>
             </div>

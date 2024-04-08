@@ -46,6 +46,23 @@ const app = createApp({
             }
 
           
+        },
+
+        downloadImage(imageUrl){
+
+            console.log(imageUrl)
+
+            var a = document.createElement("a")
+            const filename = new Date().getTime()
+            a.href = imageUrl
+            // change the filename 
+            a.download = `${filename}.jpg`
+
+            // Programmatically initiate the download
+            a.click();
+
+            // Remove the anchor element from the body
+            document.body.removeChild(a)
         }
     }
 })

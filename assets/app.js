@@ -48,11 +48,18 @@ const app = createApp({
           
         },
 
-        downloadImage(imageUrl){
+        async downloadImage(imageUrl){
 
             console.log(imageUrl)
+	    
+            try{
+
+            const response = await fetch(imageUrl)
+            const blob = await response.blob()
+            const url = window.URL.createObjectURL(blob)
 
             var a = document.createElement("a")
+
             const filename = new Date().getTime()
             a.href = imageUrl
             // change the filename 
@@ -62,8 +69,14 @@ const app = createApp({
             a.click();
 
             // Remove the anchor element from the body
+            window.URL.revokeObjectURL(url)
             document.body.removeChild(a)
-        }
+
+	    }catch(error) {
+              console.log(error)
+            }
+
+        },
     }
 })
 

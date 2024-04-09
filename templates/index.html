@@ -56,9 +56,12 @@
             
             <div class="gallery mt-3">
                 <div class="row">
-                    <div class="col-sm-4 p-3" v-for="result in results">
-                        <a :href="result.url"><img :src="result.url" width="200" height="200" alt=""></a>
-                        <button @click="downloadImage(result.url)">Download</button>
+                    <div class="col-sm-4 p-3 card" v-for="result in results">
+                        <img :src="result.url" class="card-img-top" width="200" height="200" alt="">
+                        
+			<div class="card-body">   
+			  <a :href="result.url" download class="btn btn-primary">View</a>
+			</div>
                     </div>
                 </div>
             </div>
